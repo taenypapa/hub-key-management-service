@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: key-management-service
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  datasource:
+    username: sa
+    password:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    hikari:
+      jdbc-url: jdbc:h2:mem:testdb
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+
+my:
+  application:
+    properties:
+      root-key:
+      local-aes-key: 3061616464623733663632613430393362626362653665383936373237646239
